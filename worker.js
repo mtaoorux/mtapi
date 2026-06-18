@@ -1,6 +1,6 @@
 const PROXY_DOMAIN = "https://mtapi.mtaiirus.workers.dev";
-const ORIGIN_DOMAIN = "https://api-aditya-beige.vercel.app";
-const ORIGIN_HOST = "api-aditya-beige.vercel.app";
+const ORIGIN_DOMAIN = "https://stream.testuk.org";
+const ORIGIN_HOST = "stream.testuk.org";
 
 const CF_HEADERS_TO_REMOVE = [
   "cf-connecting-ip",
@@ -78,9 +78,9 @@ export default {
       let body = await originResponse.text();
 
       body = body
-        .replaceAll(`https://api-aditya-beige.vercel.app/`, PROXY_DOMAIN)
-        .replaceAll(`https://api-aditya-beige.vercel.app/`, PROXY_DOMAIN)        
-        .replaceAll(`//api-aditya-beige.vercel.app/`, `//mtapi.mtaiirus.workers.dev`)      
+        .replaceAll(`https://stream.testuk.org/`, PROXY_DOMAIN)        
+        .replaceAll(`https://stream.testuk.org/`, PROXY_DOMAIN)
+        .replaceAll(`//stream.testuk.org/`, `//mtapi.mtaiirus.workers.dev`) 
 
       // Remove content-length since body size may change after rewrite
       respHeaders.delete("content-length");
