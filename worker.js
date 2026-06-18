@@ -1,4 +1,4 @@
-const PROXY_DOMAIN = "https://mtaiiirus.reenachoudhary21999.workers.dev";
+const PROXY_DOMAIN = "https://mtapi.mtaiirus.workers.dev";
 const ORIGIN_DOMAIN = "https://rarestudy.in";
 const ORIGIN_HOST = "rarestudy.in";
 
@@ -69,7 +69,7 @@ export default {
     for (const h of RESPONSE_HEADERS_TO_REMOVE) {
       respHeaders.delete(h);
     }
-    respHeaders.set("x-proxied-by", "mtaiiirus.reenachoudhary21999.workers.dev");
+    respHeaders.set("x-proxied-by", "mtapi.mtaiirus.workers.dev");
 
     const contentType = respHeaders.get("content-type") || "";
 
@@ -80,7 +80,7 @@ export default {
       body = body
         .replaceAll(`https://rarestudy.in`, PROXY_DOMAIN)
         .replaceAll(`http://rarestudy.in`, PROXY_DOMAIN)
-        .replaceAll(`//rarestudy.in`, `//mtaiiirus.reenachoudhary21999.workers.dev`);
+        .replaceAll(`//rarestudy.in`, `//mtapi.mtaiirus.workers.dev`);
 
       // Remove content-length since body size may change after rewrite
       respHeaders.delete("content-length");
